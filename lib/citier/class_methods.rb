@@ -6,7 +6,7 @@ module ClassMethods
     db_type_field = (options[:db_type_field] || :type).to_s
 
     #:table_name = option for setting the name of the current class table_name, default value = 'tableized(current class name)'
-    table_name = (options[:table_name] || self.name.tableize.gsub(/\//,'_')).to_s
+    table_name = (options[:table_name] || self.class.name.tableize.gsub(/\//,'_')).to_s
 
     set_inheritance_column "#{db_type_field}"
 
